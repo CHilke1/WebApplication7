@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "DonationFailureView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DonationFailureView</h2>
+<p> Your donation to @ViewBag.Website.SiteName was not successful. Please try again.</p>
+@Html.ActionLink("Home", "Index", "Home") |
+@Html.ActionLink("Back to sites", "Index", "Websites")

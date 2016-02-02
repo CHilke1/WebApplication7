@@ -1,0 +1,158 @@
+﻿@model WebApplication7.Models.Donor
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Donate</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>@ViewBag.Website.SiteName</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <input type="hidden" name="websiteId" id="websiteId" value="@ViewBag.Website.ID" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Donate" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>
+                <a href="#demo" data-toggle="collapse">Click to pay by credit card</a>  
+            </p>
+        </div>
+            <div id="demo" class="collapse">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            @Html.Label("Check here for credit card")
+                        </div>
+                        <div class="col-md-offset-2 everything-checkbox">
+                            <input type="checkbox" name="card" value="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            @Html.Label("CreditCardNumber")
+                        </div>
+                            <div class="col-md-10">
+                                @Html.TextBox("txtNumber", null, new { @class = "form-control" })
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            @Html.Label("CreditCardType")
+                        </div>
+                            <div class="col-md-10">
+                                @Html.TextBox("txtType", null, new { @class = "form-control" })
+                            </div>                
+                     </div>
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            @Html.Label("CreditCardExpireMonth")
+                         </div>
+                            <div class="col-md-10">
+                                @Html.TextBox("txtMonth", null, new { @class = "form-control" })
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            @Html.Label("CreditCardExpireYear")
+                         </div>
+                         <div class="col-md-10">
+                            @Html.TextBox("txtYear", null, new { @class = "form-control" })
+                         </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Donate" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+}
+
+<div>
+    @*Html.ActionLink("Back to List", "Index")*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
